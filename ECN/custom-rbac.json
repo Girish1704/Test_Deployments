@@ -43,6 +43,7 @@
 	"Microsoft.OperationalInsights/workspaces/linkedServices/*",
 	"Microsoft.OperationalInsights/workspaces/intelligencePacks/*",
 	"Microsoft.Network/networkWatchers/flowLogs/*",
+	"Microsoft.OperationsManagement/solutions/*",
 	"Microsoft.Insights/*"
   ],
 	"NotActions": [
