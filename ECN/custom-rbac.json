@@ -22,6 +22,7 @@
     "Microsoft.Network/connections/*",
     "Microsoft.Compute/availabilitySets/*",
     "Microsoft.Storage/storageAccounts/*",
+    "Microsoft.Storage/storageAccounts/listKeys/action",
     "Microsoft.Network/serviceEndpointPolicies/joinSubnet/action",
     "Microsoft.Network/virtualNetworks/subnets/join/action",
     "Microsoft.Network/networkInterfaces/ipconfigurations/join/action",
@@ -40,12 +41,14 @@
     "Microsoft.Support/*",
     "Microsoft.Insights/diagnosticSettings/write",
     "Microsoft.OperationalInsights/workspaces/sharedKeys/read",
-	"Microsoft.OperationalInsights/workspaces/linkedServices/*",
-	"Microsoft.OperationalInsights/workspaces/intelligencePacks/*",
-	"Microsoft.Network/networkWatchers/flowLogs/*",
-	"Microsoft.OperationsManagement/solutions/*",
-	"Microsoft.Insights/*"
+    "Microsoft.OperationalInsights/workspaces/linkedServices/*",
+    "Microsoft.OperationalInsights/workspaces/intelligencePacks/*",
+    "Microsoft.Network/networkWatchers/flowLogs/*",
+    "Microsoft.OperationsManagement/solutions/*",
+    "Microsoft.Insights/*"
   ],
-	"NotActions": [
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<YOUR-SUBSCRIPTION-ID>"
   ]
 }
