@@ -39,7 +39,11 @@
     "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Support/*",
     "Microsoft.Insights/diagnosticSettings/write",
-    "Microsoft.OperationalInsights/workspaces/sharedKeys/read"
+    "Microsoft.OperationalInsights/workspaces/sharedKeys/read",
+	"Microsoft.OperationalInsights/workspaces/linkedServices/*",
+	"Microsoft.OperationalInsights/workspaces/intelligencePacks/*",
+	"Microsoft.Network/networkWatchers/flowLogs/*",
+	"Microsoft.Insights/*"
   ],
 	"NotActions": [
   ]
