@@ -2,7 +2,7 @@
   "Name": "Spektra Custom RBAC",
   "Id": null,
   "IsCustom": true,
-  "Description": "Spektra Training Custom Role with Traffic Analytics + Flow Logs enablement.",
+  "Description": "Spektra Training Custom Role with Flow Logs + TA enablement.",
   "Actions": [
     "Microsoft.Authorization/*/read",
     "Microsoft.Compute/disks/*",
@@ -28,7 +28,6 @@
     "Microsoft.Network/azureFirewalls/*",
     "Microsoft.Network/ddosProtectionPlans/*",
     "Microsoft.Network/bastionHosts/*",
-    "Microsoft.Network/networkSecurityGroups/read",
     "Microsoft.Network/networkWatchers/flowLogs/read",
     "Microsoft.Network/networkWatchers/flowLogs/write",
     "Microsoft.Network/networkWatchers/flowLogs/delete",
@@ -38,7 +37,6 @@
     "Microsoft.Network/networkWatchers/virtualNetworkFlowLogs/write",
     "Microsoft.Network/networkWatchers/virtualNetworkFlowLogs/delete",
     "Microsoft.OperationalInsights/workspaces/*",
-    "Microsoft.OperationalInsights/workspaces/read",
     "Microsoft.OperationalInsights/workspaces/sharedKeys/read",
     "Microsoft.Insights/diagnosticSettings/*",
     "Microsoft.Insights/diagnosticSettings/write",
@@ -51,6 +49,7 @@
     "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Support/*"
   ],
-	"NotActions": [
-  ]
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
 }
