@@ -30,25 +30,24 @@
     "Microsoft.Network/virtualNetworks/*/action",
     "Microsoft.Network/applicationSecurityGroups/*",
     "Microsoft.Network/networkWatchers/*",
+    "Microsoft.Network/networkWatchers/flowLogs/*",
+    "Microsoft.Network/networkWatchers/flowLogs/configureFlowLog/action",
+    "Microsoft.Network/networkWatchers/flowLogs/configureTrafficAnalytics/action",
+    "Microsoft.Network/networkWatchers/queryFlowLogStatus/action",
     "Microsoft.Network/applicationGateways/*",
     "Microsoft.Network/localNetworkGateways/*",
     "Microsoft.OperationalInsights/workspaces/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Network/bastionHosts/*",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Network/*",
-    "Microsoft.ResourceHealth/availabilityStatuses/read",
-    "Microsoft.Support/*",
-    "Microsoft.Insights/diagnosticSettings/write",
     "Microsoft.OperationalInsights/workspaces/sharedKeys/read",
     "Microsoft.OperationalInsights/workspaces/linkedServices/*",
     "Microsoft.OperationalInsights/workspaces/intelligencePacks/*",
-    "Microsoft.Network/networkWatchers/flowLogs/*",
     "Microsoft.OperationsManagement/solutions/*",
-    "Microsoft.Insights/*"
+    "Microsoft.Insights/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Insights/diagnosticSettings/write",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Network/*",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
+    "Microsoft.Support/*"
   ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<YOUR-SUBSCRIPTION-ID>"
-  ]
+  "NotActions": []
 }
