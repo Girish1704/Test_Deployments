@@ -30,6 +30,8 @@
               { "field": "type", "like": "Microsoft.OperationalInsights/workspaces/linkedServices*" },
               { "field": "type", "like": "Microsoft.OperationsManagement/solutions*" },
               { "field": "type", "like": "Microsoft.Insights/diagnosticSettings*" },
+              { "field": "type", "like": "Microsoft.Insights/dataCollectionRules/*" },
+              { "field": "type", "like": "Microsoft.Insights/dataCollectionEndpoints/*" },
               { "field": "type", "like": "Microsoft.Network/bastionHosts*" },
               { "field": "type", "like": "Microsoft.CognitiveServices*" },
               { "field": "type", "like": "Microsoft.DevTestLab/labs*" },
