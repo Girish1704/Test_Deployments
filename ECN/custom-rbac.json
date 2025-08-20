@@ -49,5 +49,6 @@
     "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Support/*"
   ],
-  "NotActions": []
+	"NotActions": [
+  ]
 }
