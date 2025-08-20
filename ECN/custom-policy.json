@@ -1,87 +1,227 @@
 {
-  "mode": "All",
-  "policyRule": {
-    "if": {
-      "anyOf": [
-        {
-          "not": {
-            "anyOf": [
-              { "field": "type", "like": "Microsoft.Storage/storageAccounts*" },
-              { "field": "type", "like": "Microsoft.Compute/virtualMachines/extensions*" },
-              { "field": "type", "like": "Microsoft.Network/virtualNetworks*" },
-              { "field": "type", "like": "Microsoft.Network/virtualNetworkGateways*" },
-              { "field": "type", "like": "Microsoft.Compute/disks*" },
-              { "field": "type", "like": "Microsoft.Network/networkWatchers*" },
-              { "field": "type", "like": "Microsoft.Network/networkWatchers/flowLogs*" },
-              { "field": "type", "like": "Microsoft.Compute/virtualMachines*" },
-              { "field": "type", "like": "Microsoft.Network/networkInterfaces*" },
-              { "field": "type", "like": "Microsoft.Network/networkSecurityGroups*" },
-              { "field": "type", "like": "Microsoft.Network/publicIPAddresses*" },
-              { "field": "type", "like": "Microsoft.Compute/availabilitySets*" },
-              { "field": "type", "like": "Microsoft.Network/connections*" },
-              { "field": "type", "like": "Microsoft.Network/routeTables*" },
-              { "field": "type", "like": "Microsoft.Network/applicationSecurityGroups*" },
-              { "field": "type", "like": "Microsoft.Network/azureFirewalls*" },
-              { "field": "type", "like": "Microsoft.Network/ddosProtectionPlans*" },
-              { "field": "type", "like": "Microsoft.Network/loadBalancers*" },
-              { "field": "type", "like": "Microsoft.Network/applicationGateways*" },
-              { "field": "type", "like": "Microsoft.Network/localNetworkGateways*" },
-              { "field": "type", "like": "Microsoft.OperationalInsights/workspaces*" },
-              { "field": "type", "like": "Microsoft.OperationalInsights/workspaces/linkedServices*" },
-              { "field": "type", "like": "Microsoft.OperationsManagement/solutions*" },
-              { "field": "type", "like": "Microsoft.Insights/diagnosticSettings*" },
-              { "field": "type", "like": "Microsoft.Insights/dataCollectionRules/*" },
-              { "field": "type", "like": "Microsoft.Insights/dataCollectionEndpoints/*" },
-              { "field": "type", "like": "Microsoft.Network/bastionHosts*" },
-              { "field": "type", "like": "Microsoft.CognitiveServices*" },
-              { "field": "type", "like": "Microsoft.DevTestLab/labs*" },
-              { "field": "type", "like": "Microsoft.Network/expressRouteCircuits*" },
-              { "field": "type", "like": "Microsoft.Compute/virtualMachineScaleSets*" }
-            ]
-          }
-        },
-        {
-          "allOf": [
-            { "field": "type", "equals": "Microsoft.Compute/virtualMachines" },
+  "if": {
+    "anyOf": [
+      {
+        "not": {
+          "anyOf": [
             {
-              "not": {
-                "allOf": [
-                  { "field": "Microsoft.Compute/virtualMachines/imageOffer", "in": [ "WindowsServer", "VisualStudio", "visualstudio2019latest", "SQL2014SP2-WS2012R2" ] },
-                  { "field": "Microsoft.Compute/virtualMachines/imagePublisher", "in": [ "MicrosoftWindowsServer", "MicrosoftVisualStudio", "MicrosoftSQLServer" ] },
-                  { "field": "Microsoft.Compute/virtualMachines/imageSku", "in": [ "2019-datacenter-gensecond", "VS-2017-Comm-Latest-WS2016", "vs-2019-comm-latest-ws2019", "Web" ] },
-                  { "field": "Microsoft.Compute/virtualMachines/sku.name", "in": [ "Standard_DS1_v2", "Standard_DS2_v2", "Standard_D2S_v3" ] }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "allOf": [
-            { "source": "action", "equals": "Microsoft.Storage/storageAccounts/write" },
-            { "field": "type", "equals": "Microsoft.Storage/storageAccounts" },
+              "field": "type",
+              "like": "Microsoft.Storage/storageAccounts/*"
+            },
             {
-              "not": {
-                "field": "Microsoft.Storage/storageAccounts/sku.name",
-                "in": [ "Premium_LRS", "Standard_LRS" ]
-              }
-            }
-          ]
-        },
-        {
-          "allOf": [
-            { "field": "type", "equals": "Microsoft.Network/loadBalancers" },
+              "field": "type",
+              "like": "Microsoft.Compute/virtualMachines/extensions/*"
+            },
             {
-              "not": {
-                "field": "Microsoft.Network/loadBalancers/sku.name",
-                "in": [ "Basic", "Standard" ]
-              }
+              "field": "type",
+              "like": "Microsoft.Network/virtualNetworks/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/virtualNetworkGateways/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Compute/disks/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/networkWatchers/flowLogs"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Compute/virtualMachines/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/networkInterfaces/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/networkSecurityGroups/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/publicIPAddresses/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Compute/availabilitySets/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/connections/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/routeTables/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/applicationSecurityGroups/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/azureFirewalls/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/ddosProtectionPlans/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/loadBalancers/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/routeTables/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/virtualNetworks/subnets/join/action"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/networkWatchers/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/applicationGateways/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/localNetworkGateways/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.OperationalInsights/workspaces/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Insights/diagnosticSettings/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.CognitiveServices/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.DevTestLab/labs/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Network/expressRouteCircuits/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Compute/virtualMachineScaleSets/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Insights/diagnosticSettings/write"
+            },
+            {
+              "field": "type",
+              "in": [
+                "Microsoft.Network/networkWatchers",
+                "Microsoft.Network/applicationGateways",
+                "Microsoft.Network/localNetworkGateways",
+                "Microsoft.OperationalInsights/workspaces",
+                "Microsoft.Insights/diagnosticSettings",
+                "Microsoft.Compute/disks",
+                "Microsoft.Network/routeTables",
+                "Microsoft.Network/loadBalancers",
+                "Microsoft.Network/ddosProtectionPlans",
+                "Microsoft.Network/azureFirewalls",
+                "Microsoft.Network/applicationSecurityGroups",
+                "Microsoft.Network/routeTables",
+                "Microsoft.Network/connections",
+                "Microsoft.Compute/availabilitySets",
+                "Microsoft.Storage/storageAccounts",
+                "Microsoft.Compute/virtualMachines/extensions",
+                "Microsoft.Network/virtualNetworks",
+                "Microsoft.Compute/virtualMachines",
+                "Microsoft.Network/networkInterfaces",
+                "Microsoft.Network/virtualNetworkGateways",
+                "Microsoft.Network/networkSecurityGroups",
+                "Microsoft.Network/publicIPAddresses",
+                "Microsoft.Network/bastionHosts",
+                "Microsoft.CognitiveServices",
+                "Microsoft.DevTestLab/labs",
+                "Microsoft.Network/expressRouteCircuits",
+                "Microsoft.Compute/virtualMachineScaleSets",
+                "Microsoft.Insights/diagnosticSettings/write",
+                "Microsoft.Network/networkWatchers/flowLogs"
+              ]
             }
           ]
         }
-      ]
-    },
-    "then": {
-      "effect": "deny"
-    }
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "not": {
+              "allOf": [
+                {
+                  "field": "Microsoft.Compute/virtualMachines/imageOffer",
+                  "in": [ "WindowsServer", "VisualStudio", "visualstudio2019latest", "SQL2014SP2-WS2012R2" ]
+                },
+                {
+                  "field": "Microsoft.Compute/virtualMachines/imagePublisher",
+                  "in": [ "MicrosoftWindowsServer", "MicrosoftVisualStudio", "MicrosoftSQLServer" ]
+                },
+                {
+                  "field": "Microsoft.Compute/virtualMachines/imageSku",
+                  "in": [ "2019-datacenter-gensecond", "VS-2017-Comm-Latest-WS2016", "vs-2019-comm-latest-ws2019", "Web" ]
+                },
+                {
+                  "field": "Microsoft.Compute/virtualMachines/sku.name",
+                  "in": [ "Standard_DS1_v2", "Standard_DS2_v2", "Standard_D2S_v3" ]
+                }
+                ]
+            }
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "source": "action",
+            "equals": "Microsoft.Storage/storageAccounts/write"
+          },
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Storage/storageAccounts/sku.name",
+              "in": [ "PremiumLRS", "Standard_LRS" ]
+            }
+          }
+        ]
+      },
+      {
+        "allof": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Network/loadBalancers"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Network/loadBalancers/Sku.Name",
+              "in": [ "Basic", "Standard" ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
   }
 }
