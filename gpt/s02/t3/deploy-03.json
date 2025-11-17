@@ -229,7 +229,7 @@
     {
       "type": "Microsoft.CognitiveServices/accounts/deployments",
       "apiVersion": "2023-05-01",
-      "name": "[concat(variables('accountName'),'/mygpt-4')]",
+      "name": "[concat(variables('accountName'),'/copilot-gpt')]",
       "dependsOn": [
         "[resourceId('Microsoft.CognitiveServices/accounts', variables('accountName'))]"
       ],
@@ -253,7 +253,7 @@
       "name": "[concat(variables('accountName'),'/ada-002')]",
       "dependsOn": [
         "[resourceId('Microsoft.CognitiveServices/accounts', variables('accountName'))]",
-        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', variables('accountName'), 'mygpt-4')]"
+        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', variables('accountName'), 'copilot-gpt')]"
 
       ],
       "sku": {
