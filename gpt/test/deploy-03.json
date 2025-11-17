@@ -59,7 +59,7 @@
       "properties": {
         "model": {
           "format": "OpenAI",
-          "name": "gpt-4.1-mini",
+          "name": "gpt-4.1",
           "version": "2025-04-14"
         },
         "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
