@@ -1,0 +1,110 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.10.61.36676",
+      "templateHash": "2440974564149075183"
+    }
+  },
+  "parameters": {
+    "DeploymentID": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "cognitiveServiceName": "[concat('openai-',parameters('DeploymentID'))]",
+    "sku": "S0",
+    "location": "[resourceGroup().location]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.CognitiveServices/accounts",
+      "apiVersion": "2023-10-01-preview",
+      "name": "[variables('cognitiveServiceName')]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "[variables('sku')]"
+      },
+      "kind": "OpenAI",
+      "properties": {
+        "customSubDomainName": "[variables('cognitiveServiceName')]",
+        "networkAcls": {
+          "defaultAction": "Allow",
+          "virtualNetworkRules": [],
+          "ipRules": []
+        },
+        "publicNetworkAccess": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "apiVersion": "2023-05-01",
+      "name": "[concat(variables('cognitiveServiceName'), '/gptmodel')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.CognitiveServices/accounts', variables('cognitiveServiceName'))]"
+      ],
+      "sku": {
+        "name": "GlobalStandard",
+        "capacity": 15
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "gpt-4.1-mini",
+          "version": "2025-04-14"
+        },
+        "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
+        "raiPolicyName": "Microsoft.Default"
+      }
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "apiVersion": "2023-05-01",
+      "name": "[concat(variables('cognitiveServiceName'), '/demomodel')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.CognitiveServices/accounts', variables('cognitiveServiceName'))]",
+        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', variables('cognitiveServiceName'), 'gptmodel')]"
+      ],
+      "sku": {
+        "name": "GlobalStandard",
+        "capacity": 15
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "gpt-4.1-mini",
+          "version": "2025-04-14"
+        },
+        "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
+        "raiPolicyName": "Microsoft.Default"
+      }
+    }
+  ],
+  "outputs": {
+    "OpenAIEndpoint": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.CognitiveServices/accounts', variables('cognitiveServiceName')), '2023-10-01-preview').endpoint]"
+    },
+    "OpenAIKey": {
+      "type": "string",
+      "value": "[listKeys(resourceId('Microsoft.CognitiveServices/accounts', variables('cognitiveServiceName')), '2023-10-01-preview').key1]"
+    },
+    "Deployment ID": {
+      "type": "String",
+      "value": "[parameters('DeploymentID')]"
+    },
+    "openaimodulename": {
+      "type": "string",
+      "value": "demomodel"
+    }
+  }
+}
