@@ -111,10 +111,10 @@
             "autoUpgradeMinorVersion": "true",
             "settings": {
               "fileUris": [
-                "https://experienceazure.blob.core.windows.net/templates/guided-labs/building-a-multimodal-rag-solution-with-copilot-studio/scripts/psscript.ps1",
+                "https://raw.githubusercontent.com/Girish1704/Test_Deployments/refs/heads/main/gpt/s27/t1/lang-psscript.ps1",
                 "https://experienceazure.blob.core.windows.net/templates/cloudlabs-common/cloudlabs-windows-functions.ps1"
               ],
-              "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File guided-labs/building-a-multimodal-rag-solution-with-copilot-studio/scripts/psscript.ps1', variables('cloudlabsCommon') , variables('Enable-CloudLabsEmbeddedShadow'))]"
+              "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File lang-psscript.ps1', variables('cloudlabsCommon'), variables('Enable-CloudLabsEmbeddedShadow'))]"
             }
           }
         }
