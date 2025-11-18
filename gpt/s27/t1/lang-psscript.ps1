@@ -99,8 +99,9 @@ Expand-ZIPFile -File "C:\codefiles.zip" -Destination "C:\codefiles"
 # Create a new WebClient object
 $WebClient = New-Object System.Net.WebClient
 
-# Download the file using the WebClient object
-Invoke-WebRequest -Uri "https://github.com/CloudLabsAI-Azure/Knowledge-Augmented-Chatbot-with-LangChain-and-AI-Search/archive/refs/heads/codefiles.zip" -OutFile "C:\Labfiles\logontask.ps1"
+# Download the logon-lang.ps1 task script
+$WebClient = New-Object System.Net.WebClient
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Girish1704/Test_Deployments/refs/heads/main/gpt/s27/t1/logon-lang.ps1" -OutFile "C:\LabFiles\logontask.ps1"
 
 #Enable Autologon
 $AutoLogonRegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
